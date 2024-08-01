@@ -15,7 +15,17 @@ thematique_dict = {
     'MODE / FEMME': ['fashion', 'beauty', 'cosmetics', 'woman', 'beaute', 'bien-etre', 'lifestyle', 'mode', 'shopping', 'style', 'clothing', 'accessories', 'women', 'hat', 'jewelry', 'makeup', 'designer', 'boutique', 'shopping', 'runway', 'model', 'mode', 'beauté', 'bien-être', 'style de vie', 'vêtements', 'accessoires', 'chapeau', 'bijoux', 'maquillage', 'styliste', 'boutique', 'défilé', 'modèle'],
     'SANTE': ['health', 'fitness', 'wellness', 'medical', 'hospital', 'grossesse', 'maladie', 'minceur', 'professionnels', 'sante', 'seniors', 'baby', 'therapy', 'massage', 'biochimie', 'skincare', 'santé', 'fitness', 'bien-être', 'médical', 'hôpital', 'grossesse', 'maladie', 'minceur', 'professionnels', 'santé', 'aînés', 'bébé', 'thérapie', 'massage', 'biochimie', 'soins de la peau'],
     'SPORT': ['sport', 'fitness', 'football', 'soccer', 'basketball', 'tennis', 'autre sport', 'basket', 'combat', 'foot', 'musculation', 'velo', 'cricket', 'gym', 'athletic', 'team', 'league', 'club', 'cycling', 'surf', 'trail', 'marathon', 'tango', 'sport', 'fitness', 'football', 'soccer', 'basketball', 'tennis', 'autre sport', 'basket', 'combat', 'foot', 'musculation', 'vélo', 'cricket', 'gym', 'athlétique', 'équipe', 'ligue', 'club', 'cyclisme', 'surf', 'sentier', 'marathon', 'tango'],
-    'TOURISME': ['travel', 'tourism', 'holiday', 'vacation', 'bon plan', 'camping', 'croisiere', 'location', 'tourisme', 'vacance', 'voyage', 'sauna', 'expat', 'visit', 'explore', 'adventure', 'destination', 'hotel', 'resort', 'photo', 'document', 'wave', 'land', 'fries', 'voyage', 'trip', 'journey', 'escape', 'getaway', 'tourisme', 'vacances', 'voyage', 'sauna', 'expatrié', 'visite', 'explorer', 'aventure', 'destination', 'hôtel', 'resort', 'photo', 'document', 'vague', 'terre', 'frites', 'voyage', 'excursion', 'voyage', 'évasion', 's'échapper'],
+    'TOURISME': [
+        'travel', 'tourism', 'holiday', 'vacation', 'bon plan', 'camping',
+        'croisiere', 'location', 'tourisme', 'vacance', 'voyage', 'sauna',
+        'expat', 'visit', 'explore', 'adventure', 'destination', 'hotel',
+        'resort', 'photo', 'document', 'wave', 'land', 'fries', 'voyage',
+        'trip', 'journey', 'escape', 'getaway', 'tourisme', 'vacances',
+        'voyage', 'sauna', 'expatrié', 'visite', 'explorer', 'aventure',
+        'destination', 'hôtel', 'resort', 'photo', 'document', 'vague',
+        'terre', 'frites', 'voyage', 'excursion', 'voyage', 'évasion',
+        's\'échapper'
+    ],
     'VEHICULE': ['vehicle', 'car', 'auto', 'bike', 'bicycle', 'moto', 'produits', 'securite', 'voiture', 'formula', 'drive', 'racing', 'garage', 'repair', 'dealership', 'rental', 'taxi', 'bus', 'train', 'plane', 'aviation', 'véhicule', 'voiture', 'auto', 'bike', 'bicyclette', 'moto', 'produits', 'sécurité', 'voiture', 'formule', 'conduite', 'course', 'garage', 'réparation', 'concessionnaire', 'location', 'taxi', 'bus', 'train', 'avion', 'aviation']
 }
 
