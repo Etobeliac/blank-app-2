@@ -3,6 +3,10 @@ import pandas as pd
 import re
 import io
 from langdetect import detect
+import spacy
+
+# Charger le modèle spaCy pour le français
+nlp = spacy.load("fr_core_news_sm")
 
 # Dictionnaire des thématiques et mots-clés (combinaison des anciens et nouveaux)
 thematique_dict = {
@@ -86,6 +90,13 @@ def has_meaning(domain):
     words = re.findall(r'\b\w{3,}\b', clean_domain)
     return len(words) > 0
 
+def is_proper_name(domain):
+    doc = nlp(domain)
+    for token in doc:
+        if token.is_title:
+            return True
+    return False
+
 def main():
     st.title("Classification des noms de domaine par thématique")
 
@@ -101,7 +112,7 @@ def main():
                 language = determine_language(domain)
 
                 try:
-                    if is_excluded(domain):
+                    if is_excluded(domain) or is_proper_name(domain):
                         excluded_domains.append((domain, 'EXCLU', language))
                     else:
                         category = classify_domain(domain, thematique_dict)
