@@ -1,6 +1,6 @@
 streamlit
 pandas
-openpyxl
-xlsxwriter
 langdetect
-spacy
+spacy==3.3.1
+numpy==1.23.0
+thinc==8.1.0
