@@ -3,10 +3,13 @@ import pandas as pd
 import re
 import io
 from langdetect import detect
-import spacy
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
 
-# Charger le modèle spaCy pour le français
-nlp = spacy.load("fr_core_news_sm")
+# Télécharger les ressources nécessaires pour nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
 
 # Dictionnaire des thématiques et mots-clés (combinaison des anciens et nouveaux)
 thematique_dict = {
@@ -91,9 +94,10 @@ def has_meaning(domain):
     return len(words) > 0
 
 def is_proper_name(domain):
-    doc = nlp(domain)
-    for token in doc:
-        if token.is_title:
+    tokens = word_tokenize(domain)
+    tagged = pos_tag(tokens)
+    for word, tag in tagged:
+        if tag == 'NNP':  # Proper noun
             return True
     return False
 
