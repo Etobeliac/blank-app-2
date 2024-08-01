@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import re
 import io
-import string
+from langdetect import detect
 
 # Dictionnaire des thématiques et mots-clés (combinaison des anciens et nouveaux)
 thematique_dict = {
@@ -40,12 +40,10 @@ publicity_regex = re.compile(r'\bpublicity\b', re.IGNORECASE)
 transport_regex = re.compile(r'\btransport\b', re.IGNORECASE)
 
 def determine_language(domain):
-    tld = domain.split('.')[-1]
-    tld_to_lang = {
-        'fr': 'FR', 'com': 'EN', 'uk': 'EN', 'de': 'DE', 'es': 'ES',
-        'it': 'IT', 'ru': 'RU', 'cn': 'CN', 'net': 'EN', 'org': 'EN'
-    }
-    return tld_to_lang.get(tld, 'EN')
+    try:
+        return detect(domain)
+    except:
+        return 'unknown'
 
 def classify_domain(domain, categories):
     domain_lower = domain.lower()
