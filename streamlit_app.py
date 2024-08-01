@@ -7,7 +7,7 @@ import string
 # Dictionnaire des thématiques et mots-clés (combinaison des anciens et nouveaux)
 thematique_dict = {
     'ANIMAUX': ['animal', 'pet', 'zoo', 'farm', 'deer', 'chiens', 'chats', 'animaux', 'terriers', 'veterinary', 'breed', 'wildlife', 'dog', 'cat', 'bird', 'fish', 'monde marin'],
-    'CUISINE': ['cook', 'recipe', 'cuisine', 'food', 'bon plan', 'equipement', 'minceur', 'produit', 'restaurant', 'chef', 'gastronomy', 'dining', 'eatery', 'kitchen', 'bakery', 'catering', 'madeleine', 'plat'],
+    'CUISINE': ['cook', 'recipe', 'cuisine', 'food', 'bon plan', 'equipement', 'minceur', 'produit', 'restaurant', 'chef', 'gastronomy', 'dining', 'eatery', 'kitchen', 'bakery', 'catering', 'madeleine', 'plat', 'traiteur'],
     'ENTREPRISE': ['business', 'enterprise', 'company', 'corporate', 'formation', 'juridique', 'management', 'marketing', 'services', 'firm', 'industry', 'commerce', 'trade', 'venture', 'market', 'publicity'],
     'FINANCE / IMMOBILIER': ['finance', 'realestate', 'investment', 'property', 'assurance', 'banque', 'credits', 'immobilier', 'fortune', 'credit', 'money', 'invest', 'mortgage', 'loan', 'tax', 'insurance', 'wealth'],
     'INFORMATIQUE': ['tech', 'computer', 'software', 'IT', 'high tech', 'internet', 'jeux-video', 'marketing', 'materiel', 'smartphones', 'research', 'graphics', 'solution', 'hardware', 'programming', 'coding', 'digital', 'cyber', 'web', 'hack', 'forum', 'apps', 'digital', 'open media', 'email', 'AI', 'machine learning', 'competence'],
