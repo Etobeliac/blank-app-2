@@ -7,12 +7,12 @@ from langdetect import detect
 # Dictionnaire des thématiques et mots-clés (combinaison des anciens et nouveaux)
 thematique_dict = {
     'ANIMAUX': ['animal', 'pet', 'zoo', 'farm', 'deer', 'chiens', 'chats', 'animaux', 'terriers', 'veterinary', 'breed', 'wildlife', 'dog', 'cat', 'bird', 'fish', 'monde marin', 'faune', 'sauvage', 'domestique', 'poisson', 'oiseau'],
-    'CUISINE': ['cook', 'recipe', 'cuisine', 'food', 'bon plan', 'equipement', 'minceur', 'produit', 'restaurant', 'chef', 'gastronomy', 'dining', 'eatery', 'kitchen', 'bakery', 'catering', 'madeleine', 'plat', 'traiteur', 'aliment', 'repas', 'gourmet', 'nourriture', 'cuisinier'],
+    'CUISINE': ['cook', 'recipe', 'cuisine', 'food', 'bon plan', 'equipement', 'minceur', 'produit', 'restaurant', 'chef', 'gastronomy', 'dining', 'eatery', 'kitchen', 'bakery', 'catering', 'madeleine', 'plat', 'traiteur', 'aliment', 'repas', 'gourmet', 'nourriture', 'cuisinier', 'pizza', 'grill'],
     'ENTREPRISE': ['business', 'enterprise', 'company', 'corporate', 'formation', 'juridique', 'management', 'marketing', 'services', 'firm', 'industry', 'commerce', 'trade', 'venture', 'market', 'publicity', 'entreprise', 'affaires', 'gestion', 'service', 'industrie', 'commerce', 'publicité'],
     'FINANCE / IMMOBILIER': ['finance', 'realestate', 'investment', 'property', 'assurance', 'banque', 'credits', 'immobilier', 'fortune', 'credit', 'money', 'invest', 'mortgage', 'loan', 'tax', 'insurance', 'wealth', 'argent', 'prêt', 'hypothèque', 'impôt', 'assurance', 'richesse'],
     'INFORMATIQUE': ['tech', 'computer', 'software', 'IT', 'high tech', 'internet', 'jeux-video', 'marketing', 'materiel', 'smartphones', 'research', 'graphics', 'solution', 'hardware', 'programming', 'coding', 'digital', 'cyber', 'web', 'hack', 'forum', 'apps', 'digital', 'open media', 'email', 'AI', 'machine learning', 'competence', 'informatique', 'technologie', 'ordinateur', 'logiciel', 'jeu vidéo', 'recherche', 'solution', 'matériel', 'programmation', 'codage', 'numérique', 'cybernétique', 'hacking', 'intelligence artificielle', 'apprentissage automatique'],
     'MAISON': ['home', 'house', 'garden', 'interior', 'deco', 'demenagement', 'equipement', 'immo', 'jardin', 'maison', 'piscine', 'travaux', 'solar', 'energy', 'decor', 'furniture', 'property', 'apartment', 'condo', 'villa', '4piecesetplus', 'maison', 'jardinage', 'décoration', 'aménagement', 'travaux', 'énergie', 'décor', 'meuble', 'propriété', 'appartement', 'condo', 'villa', '4piècesetplus'],
-    'MODE / FEMME': ['fashion', 'beauty', 'cosmetics', 'woman', 'beaute', 'bien-etre', 'lifestyle', 'mode', 'shopping', 'style', 'clothing', 'accessories', 'women', 'hat', 'jewelry', 'makeup', 'designer', 'boutique', 'shopping', 'runway', 'model', 'mode', 'beauté', 'bien-être', 'style de vie', 'vêtements', 'accessoires', 'chapeau', 'bijoux', 'maquillage', 'styliste', 'boutique', 'défilé', 'modèle'],
+    'MODE / FEMME': ['fashion', 'beauty', 'cosmetics', 'woman', 'beaute', 'bien-etre', 'lifestyle', 'mode', 'shopping', 'style', 'clothing', 'accessories', 'women', 'hat', 'jewelry', 'makeup', 'designer', 'boutique', 'shopping', 'runway', 'model', 'mode', 'beauté', 'bien-être', 'style de vie', 'vêtements', 'accessoires', 'chapeau', 'bijoux', 'maquillage', 'styliste', 'boutique', 'défilé', 'modèle', 'robe', 'vintage'],
     'SANTE': ['health', 'fitness', 'wellness', 'medical', 'hospital', 'grossesse', 'maladie', 'minceur', 'professionnels', 'sante', 'seniors', 'baby', 'therapy', 'massage', 'biochimie', 'skincare', 'santé', 'fitness', 'bien-être', 'médical', 'hôpital', 'grossesse', 'maladie', 'minceur', 'professionnels', 'santé', 'aînés', 'bébé', 'thérapie', 'massage', 'biochimie', 'soins de la peau'],
     'SPORT': ['sport', 'fitness', 'football', 'soccer', 'basketball', 'tennis', 'autre sport', 'basket', 'combat', 'foot', 'musculation', 'velo', 'cricket', 'gym', 'athletic', 'team', 'league', 'club', 'cycling', 'surf', 'trail', 'marathon', 'tango', 'sport', 'fitness', 'football', 'soccer', 'basketball', 'tennis', 'autre sport', 'basket', 'combat', 'foot', 'musculation', 'vélo', 'cricket', 'gym', 'athlétique', 'équipe', 'ligue', 'club', 'cyclisme', 'surf', 'sentier', 'marathon', 'tango'],
     'TOURISME': [
@@ -30,7 +30,13 @@ thematique_dict = {
 }
 
 # Mots clés pour exclure des domaines (combinaison des anciens et nouveaux)
-excluded_keywords = ['religion', 'sex', 'voyance', 'escort', 'jesus', 'porn', 'teen', 'adult', 'White Pussy', 'Black Cocks', 'youtube', 'instagram', 'pinterest', 'forex', 'trading', 'invest', 'broker', 'stock', 'market', 'finance', 'avocat', 'avocats']
+excluded_keywords = [
+    'religion', 'sex', 'voyance', 'escort', 'jesus', 'porn', 'teen', 'adult',
+    'White Pussy', 'Black Cocks', 'youtube', 'instagram', 'pinterest', 'forex',
+    'trading', 'invest', 'broker', 'stock', 'market', 'finance', 'avocat', 'avocats',
+    'fuck', 'poker'
+]
+
 excluded_regex = re.compile(r'\b(?:%s)\b' % '|'.join(map(re.escape, excluded_keywords)), re.IGNORECASE)
 year_regex = re.compile(r'\b(19[0-9]{2}|20[0-9]{2})\b')
 name_regex = re.compile(r'\b[A-Z][a-z]+\s[A-Z][a-z]+\b')
