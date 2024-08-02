@@ -37,7 +37,13 @@ excluded_keywords = [
     'fuck', 'poker'
 ]
 
+# Mots clés pour exclure des domaines liés au sexe
+sex_keywords = [
+    'fuck', 'sex', 'porn', 'pussy', 'cock', 'adult', 'teen', 'escort', 'White Pussy', 'Black Cocks'
+]
+
 excluded_regex = re.compile(r'\b(?:%s)\b' % '|'.join(map(re.escape, excluded_keywords)), re.IGNORECASE)
+sex_regex = re.compile(r'\b(?:%s)\b' % '|'.join(map(re.escape, sex_keywords)), re.IGNORECASE)
 year_regex = re.compile(r'\b(19[0-9]{2}|20[0-9]{2})\b')
 name_regex = re.compile(r'\b[A-Z][a-z]+\s[A-Z][a-z]+\b')
 brand_regex = re.compile(r'\b(samsung|atari|longchamp)\b', re.IGNORECASE)
@@ -63,10 +69,15 @@ def classify_domain(domain, categories):
                 if category == 'TOURISME' and 'land' in domain_lower and 'ecole' in domain_lower:
                     return 'EXCLU'
                 return category
+    # Special cases
+    if 'nomad' in domain_lower and 'map' in domain_lower:
+        return 'TOURISME'
+    if 'apache' in domain_lower and 'mag' in domain_lower:
+        return 'INFORMATIQUE'
     return 'NON UTILISÉ'
 
 def is_excluded(domain):
-    if excluded_regex.search(domain) or year_regex.search(domain):
+    if sex_regex.search(domain) or excluded_regex.search(domain) or year_regex.search(domain):
         return True
     if name_regex.search(domain):
         return True
