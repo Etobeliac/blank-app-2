@@ -74,6 +74,22 @@ def classify_domain(domain, categories):
         return 'TOURISME'
     if 'apache' in domain_lower and 'mag' in domain_lower:
         return 'INFORMATIQUE'
+    if 'fitness' in domain_lower:
+        return 'SPORT'
+    if 'chateau' in domain_lower:
+        return 'TOURISME'
+    if 'competences' in domain_lower:
+        return 'ENTREPRISE'
+    if 'rando' in domain_lower and 'decouverte' in domain_lower:
+        return 'TOURISME'
+    if 'carotte' in domain_lower:
+        return 'CUISINE'
+    if 'carpet' in domain_lower or 'stains' in domain_lower:
+        return 'MAISON'
+    if 'training' in domain_lower:
+        return 'SPORT'
+    if 'entrepreneur' in domain_lower:
+        return 'ENTREPRISE'
     return 'NON UTILISÉ'
 
 def is_excluded(domain):
@@ -94,6 +110,12 @@ def is_excluded(domain):
     if publicity_regex.search(domain) and not transport_regex.search(domain):
         return True
     if re.search(r'\d', domain):  # Domaines contenant des nombres
+        return True
+    if 'marijuana' in domain.lower():
+        return True
+    if 'denuncia' in domain.lower():
+        return True
+    if 'hunter' in domain.lower():
         return True
     return False
 
