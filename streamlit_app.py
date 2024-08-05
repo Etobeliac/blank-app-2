@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import re
 import io
-from langdetect import detect
 
 # Dictionnaire des thématiques et mots-clés (combinaison des anciens et nouveaux)
 thematique_dict = {
@@ -50,12 +49,6 @@ brand_regex = re.compile(r'\b(samsung|atari|longchamp)\b', re.IGNORECASE)
 geographic_regex = re.compile(r'\b(louisville|quercy|france|ferney)\b', re.IGNORECASE)
 publicity_regex = re.compile(r'\bpublicity\b', re.IGNORECASE)
 transport_regex = re.compile(r'\btransport\b', re.IGNORECASE)
-
-def determine_language(domain):
-    try:
-        return detect(domain)
-    except:
-        return 'unknown'
 
 def classify_domain(domain, categories):
     domain_lower = domain.lower()
@@ -137,24 +130,22 @@ def main():
             excluded_domains = []
 
             for domain in domaines:
-                language = determine_language(domain)
-
                 try:
                     if is_excluded(domain):
-                        excluded_domains.append((domain, 'EXCLU', language))
+                        excluded_domains.append((domain, 'EXCLU'))
                     else:
                         category = classify_domain(domain, thematique_dict)
                         if category == 'NON UTILISÉ' and not has_meaning(domain):
-                            excluded_domains.append((domain, 'EXCLU (pas de sens)', language))
+                            excluded_domains.append((domain, 'EXCLU (pas de sens)'))
                         elif category == 'NON UTILISÉ':
-                            excluded_domains.append((domain, category, language))
+                            excluded_domains.append((domain, category))
                         else:
-                            classified_domains.append((domain, category, language))
+                            classified_domains.append((domain, category))
                 except Exception as e:
                     st.error(f"Erreur lors de l'analyse du domaine {domain}: {e}")
 
-            df_classified = pd.DataFrame(classified_domains, columns=['Domain', 'Category', 'Language'])
-            df_excluded = pd.DataFrame(excluded_domains, columns=['Domain', 'Category', 'Language'])
+            df_classified = pd.DataFrame(classified_domains, columns=['Domain', 'Category'])
+            df_excluded = pd.DataFrame(excluded_domains, columns=['Domain', 'Category'])
 
             st.subheader("Prévisualisation des résultats")
             st.write(df_classified)
